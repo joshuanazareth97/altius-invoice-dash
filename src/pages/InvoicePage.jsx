@@ -4,6 +4,7 @@ import { Box, Button } from "@mui/material";
 import { PlusOneOutlined } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import useInvoices from "../hooks/useInvoices";
+import dayjs from "dayjs";
 
 const cols = [
   {
@@ -13,7 +14,7 @@ const cols = [
   {
     label: "Date",
     accessor: "date",
-    transformer: (value) => new Date(parseInt(value)).toLocaleDateString(),
+    transformer: (value) => dayjs(value).format("DD/MM/YYYY"),
   },
   {
     label: "Invoice Number",

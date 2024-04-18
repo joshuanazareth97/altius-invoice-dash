@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { InvoiceContext } from "../contexts/InvoiceContext";
 
 const useInvoices = (id = "") => {
@@ -23,7 +23,9 @@ const useInvoices = (id = "") => {
 
   return {
     invoices,
-    addInvoice: (invoice) => setInvoices((old) => [...old, invoice]),
+    addInvoice: (invoice) => {
+      setInvoices((old) => [...old, { id: old.length + 1, ...invoice }]);
+    },
   };
 };
 
